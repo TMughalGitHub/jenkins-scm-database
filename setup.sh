@@ -2,14 +2,14 @@
 # setup a mysql db in a docker container
 
 # install docker if it isn't already
-if ! sudo docker --version > /dev/null; then
-    curl https://get.docker.com | sudo bash
+if ! docker --version > /dev/null; then
+    curl https://get.docker.com | bash
 fi
 
 MYSQL_DATABASE="bookshelve"
 
 create_container() {
-    sudo docker run -d \
+     docker run -d \
         --name mysql \
         -p 3306:3306 \
         --health-cmd='mysqladmin ping --silent' \
